@@ -6,9 +6,11 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 19:50:58 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/09 19:53:30 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:00:37 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

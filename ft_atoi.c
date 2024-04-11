@@ -6,9 +6,11 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:37:05 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/09 19:13:04 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:00:18 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {

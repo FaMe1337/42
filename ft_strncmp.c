@@ -6,9 +6,11 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:35:38 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/09 19:07:09 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:01:01 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strncmp(const char*s1, const char*s2, size_t n)
 {
