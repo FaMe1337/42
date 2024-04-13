@@ -6,7 +6,7 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 18:40:45 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/11 19:53:35 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/13 16:43:37 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,26 @@
 
 void	*ft_memcpy(void*dest, const void*src, size_t n)
 {
-	unsigned char	*s;
-	unsigned char	*d;
-	size_t			i;
+	size_t	i;
 
-	s = (unsigned char *)src;
-	d = (unsigned char *)dest;
 	i = 0;
-	if (dest == NULL || src == NULL)
-		return (NULL);
-	while (s[i] && n > i)
+	if (!dest && !src)
+		return (0);
+	while (i < n)
 	{
-		d[i] = s[i];
+		((unsigned char *) dest)[i] = ((unsigned char *)src)[i];
 		i++;
 	}
 	return (dest);
 }
 
-/* int	main(void)
+/*  int  main(void)
 {
-	char c1[] = "ola tudo bem";
-	char c2[20];
-	char c3[20];
-	memcpy (c2, c1, 13);
-	printf ("%s\n", c2);
-	ft_memcpy (c3, c1, 13);
-	printf ("%s\n", c3);
+    char c3[] = "21312as";
+	char c4[20];
+    char c5[20];
+    memcpy (c4, c3, 13);
+    printf ("%s\n", c4);
+    ft_memcpy (c5, c3, 13);
+    printf ("%s\n", c5);
 } */

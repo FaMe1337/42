@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_*.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 16:51:26 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/09 17:21:31 by famendes         ###   ########.fr       */
+/*   Created: 2024/04/13 15:54:55 by famendes          #+#    #+#             */
+/*   Updated: 2024/04/13 18:00:33 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-int ft_strlen(char*str)
+void	*ft_memmove(void*dest, const void*src, size_t n)
 {
-	int i = 0;
-	
-	while(str[i])
-	i++;
-	return (i);
+	unsigned char	*s;
+	unsigned char	*d;
+	size_t			i;
+	size_t			j; 
+
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	i = 0;
+	j = i;
+	if (!src && !dest)
+		return (NULL);
+	if (s < d)
+		while (n-- > 0)
+			d[n] = s[n];
+	else 
+		while (i < n)
+			d[i++] = s[j++];
+	return (dest);
 }
