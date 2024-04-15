@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 18:53:03 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/15 17:58:37 by famendes         ###   ########.fr       */
+/*   Created: 2024/04/15 16:58:12 by famendes          #+#    #+#             */
+/*   Updated: 2024/04/15 17:39:48 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char*s, int c)
+char	*ft_strnstr(const char*big, const char*little, size_t len)
 {
-	char	c1;
-	int		i;
-	int		end;
+	size_t	i;
 
-	c1 = (char) c;
 	i = 0;
-	end = ft_strlen(s);
-	if (!c)
-		return ((char *)s + end);
-	while (s[i])
+	if (!little)
+		return ((char *)big);
+	if (ft_strlen(little) > len)
+		return (NULL);
+	while (big[i] && i < len - 1)
 	{
-		if (s[i] == c1)
-			return ((char *)s + i);
+		if (ft_strncmp(big + i, little, ft_strlen(little)) == 0)
+		{
+			if (len - i < ft_strlen(little))
+				break ;
+			return ((char *)big + i);
+		}
 		i++;
 	}
 	return (NULL);

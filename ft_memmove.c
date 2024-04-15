@@ -6,7 +6,7 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:54:55 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/13 18:00:33 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:30:33 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memmove(void*dest, const void*src, size_t n)
 	size_t			i;
 	size_t			j; 
 
-	d = (unsigned char *)dest;
+	d = dest;
 	s = (unsigned char *)src;
 	i = 0;
 	j = i;
