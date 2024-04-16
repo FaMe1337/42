@@ -1,36 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:54:55 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/16 19:16:20 by famendes         ###   ########.fr       */
+/*   Created: 2024/04/16 18:16:23 by famendes          #+#    #+#             */
+/*   Updated: 2024/04/16 19:46:50 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void*dest, const void*src, size_t n)
-{
-	unsigned char	*s;
-	unsigned char	*d;
-	size_t			i;
-
-	d = dest;
-	s = (unsigned char *)src;
-	i = 0;
-	if (!src && !dest)
-		return (NULL);
-	if (s < d)
-		while (n-- > 0)
-			d[n] = s[n];
-	else 
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	return (dest);
-}
+char	*ft_strjoin(char const *s1, char const *s2);
