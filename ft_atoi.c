@@ -6,7 +6,7 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:37:05 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/11 16:00:18 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/17 17:31:06 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int	ft_atoi(const char *nptr)
 		result = result * 10 + *nptr - '0';
 		nptr++;
 	}
-	return (sign * result);
+	result *= sign;
+	return (result);
 }

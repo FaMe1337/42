@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:54:55 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/17 18:11:54 by famendes         ###   ########.fr       */
+/*   Created: 2024/04/17 15:27:39 by famendes          #+#    #+#             */
+/*   Updated: 2024/04/17 18:13:21 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void*dest, const void*src, size_t n)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned char	*s;
-	unsigned char	*d;
-	size_t			i;
+	int		start;
+	int		end;
+	int		i;
+	char	*str;
 
-	d = dest;
-	s = (unsigned char *)src;
-	i = 0;
-	if (!src && !dest)
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	while (ft_strchr(set, s1[start]) && start <= end)
+		start++;
+	if (start > end)
+		return (ft_strdup(""));
+	while (ft_strchr(set, s1[end]) && end >= 0)
+		end--;
+	str = (char *)malloc(end - start + 2);
+	if (!str)
 		return (NULL);
-	if (s < d)
-		while (n-- > 0)
-			d[n] = s[n];
-	else 
+	i = 0;
+	while (i + start <= end)
 	{
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
+		str[i] = s1[start + i];
+		i++;
 	}
-	return (dest);
+	str[i] = '\0';
+	return (str);
 }
