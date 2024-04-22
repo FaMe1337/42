@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 15:27:39 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/22 17:56:08 by famendes         ###   ########.fr       */
+/*   Created: 2024/04/22 17:42:53 by famendes          #+#    #+#             */
+/*   Updated: 2024/04/22 17:59:26 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		start;
-	int		end;
+	long	nl;
 	int		i;
-	char	*str;
+	char	s[10];
 
-	start = 0;
-	end = ft_strlen(s1) - 1;
-	if (start > end)
-		return (NULL);
-	while (ft_strchr(set, s1[start]) && start <= end)
-		start++;
-	while (ft_strchr(set, s1[end]) && end >= 0)
-		end--;
-	str = (char *)malloc(end - start + 2);
-	if (!str)
-		return (NULL);
+	nl = n;
 	i = 0;
-	while (i + start <= end)
+	if (nl == 0)
 	{
-		str[i] = s1[start + i];
-		i++;
+		write (fd, "0", 1);
+		return ;
 	}
-	str[i] = '\0';
-	return (str);
+	if (nl < 0)
+	{
+		write(fd, "-", 1);
+		nl *= -1;
+	}
+	while (nl)
+	{
+		s[i++] = (nl % 10) + 48;
+		nl /= 10;
+	}
+	while (i > 0)
+		write(fd, &s[--i], 1);
 }

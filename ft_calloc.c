@@ -6,7 +6,7 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:44:49 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/16 16:37:53 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:35:03 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t			i;
-	unsigned char	*temp;
+	size_t	bytes;
+	void	*ptr;
 
-	temp = malloc(nmemb * size);
-	if (!temp)
+	bytes = nmemb * size;
+	if (size && ((bytes / size) != nmemb))
 		return (NULL);
-	i = 0;
-	while (i < size * nmemb)
-		temp[i++] = 0;
-	return ((void *) temp);
+	ptr = malloc(bytes);
+	if (NULL == ptr)
+		return (NULL);
+	ft_bzero(ptr, bytes);
+	return (ptr);
 }

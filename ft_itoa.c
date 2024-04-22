@@ -1,41 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 15:27:39 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/22 17:56:08 by famendes         ###   ########.fr       */
+/*   Created: 2024/04/22 14:27:32 by famendes          #+#    #+#             */
+/*   Updated: 2024/04/22 17:29:13 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_len(int nb)
 {
-	int		start;
-	int		end;
-	int		i;
+	int	len;
+
+	len = 0;
+	if (nb <= 0)
+		len++;
+	while (nb)
+	{
+		len++;
+		nb /= 10; 
+	}
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	int		len;
+	long	nl;
 	char	*str;
 
-	start = 0;
-	end = ft_strlen(s1) - 1;
-	if (start > end)
-		return (NULL);
-	while (ft_strchr(set, s1[start]) && start <= end)
-		start++;
-	while (ft_strchr(set, s1[end]) && end >= 0)
-		end--;
-	str = (char *)malloc(end - start + 2);
+	nl = n;
+	len = ft_len(n);
+	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
-	i = 0;
-	while (i + start <= end)
+	str[len] = '\0';
+	if (nl == 0)
+		str[0] = '0';
+	if (nl < 0)
 	{
-		str[i] = s1[start + i];
-		i++;
+		str[0] = '-';
+		nl *= -1;
 	}
-	str[i] = '\0';
+	while (nl)
+	{
+		str[--len] = (nl % 10) + 48;
+		nl /= 10;
+	}
 	return (str);
 }

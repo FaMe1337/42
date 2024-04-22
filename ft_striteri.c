@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 15:27:39 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/22 17:56:08 by famendes         ###   ########.fr       */
+/*   Created: 2024/04/22 16:24:24 by famendes          #+#    #+#             */
+/*   Updated: 2024/04/22 17:25:37 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int		start;
-	int		end;
-	int		i;
-	char	*str;
+	unsigned int	i;
 
-	start = 0;
-	end = ft_strlen(s1) - 1;
-	if (start > end)
-		return (NULL);
-	while (ft_strchr(set, s1[start]) && start <= end)
-		start++;
-	while (ft_strchr(set, s1[end]) && end >= 0)
-		end--;
-	str = (char *)malloc(end - start + 2);
-	if (!str)
-		return (NULL);
 	i = 0;
-	while (i + start <= end)
+	while (s[i])
 	{
-		str[i] = s1[start + i];
+		f(i, &s[i]);
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
 }
