@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 13:44:49 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/23 18:44:08 by famendes         ###   ########.fr       */
+/*   Created: 2024/04/23 19:28:14 by famendes          #+#    #+#             */
+/*   Updated: 2024/04/23 19:43:46 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	bytes;
-	void	*ptr;
-
-	bytes = nmemb * size;
-	if (size && ((bytes / size) != nmemb))
-		return (NULL);
-	ptr = malloc(bytes);
-	if (NULL == ptr)
-		return (NULL);
-	ft_bzero(ptr, bytes);
-	return (ptr);
+	if(!lst || !new)
+		return;
+	new->next = *lst;
+	*lst = new;
 }
