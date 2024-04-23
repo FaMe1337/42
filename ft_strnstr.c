@@ -6,7 +6,7 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:58:12 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/22 18:12:48 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:34:42 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*ft_strnstr(const char*big, const char*little, size_t len)
 	size_t	i;
 
 	i = 0;
-	if (!little)
+	if (!little || little == big)
 		return ((char *)big);
-	if (ft_strlen(little) > len)
+	if (!big && !len)
 		return (NULL);
-	while (big[i] && i < len - 1)
+	while (big[i] && i <= len)
 	{
 		if (ft_strncmp(big + i, little, ft_strlen(little)) == 0)
 		{
@@ -33,3 +33,11 @@ char	*ft_strnstr(const char*big, const char*little, size_t len)
 	}
 	return (NULL);
 }
+
+/* int	main(void)
+{
+	char	*ptr;
+	
+	ptr = ft_strnstr("aaabcabcd", "a", 1);
+	printf("%s", ptr);
+} */

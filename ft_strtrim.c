@@ -6,7 +6,7 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:27:39 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/22 17:56:08 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:44:50 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		start;
 	int		end;
-	int		i;
 	char	*str;
 
 	start = 0;
 	end = ft_strlen(s1) - 1;
-	if (start > end)
+	if (!s1 || !set)
 		return (NULL);
 	while (ft_strchr(set, s1[start]) && start <= end)
 		start++;
 	while (ft_strchr(set, s1[end]) && end >= 0)
 		end--;
+	if (start > end)
+		return (ft_strdup(""));
 	str = (char *)malloc(end - start + 2);
 	if (!str)
 		return (NULL);
-	i = 0;
-	while (i + start <= end)
-	{
-		str[i] = s1[start + i];
-		i++;
-	}
-	str[i] = '\0';
+	ft_strlcpy(str, s1 + start, (end - start) + 2);
 	return (str);
 }
