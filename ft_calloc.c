@@ -6,7 +6,7 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:44:49 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/22 17:35:03 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/23 18:17:12 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (NULL == ptr)
 		return (NULL);
 	ft_bzero(ptr, bytes);
-	return (ptr);
+	return (ptr)
 }
