@@ -6,7 +6,7 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:27:32 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/22 17:29:13 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:26:15 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
-	if (nl == 0)
+	if  (nl == 0)
 		str[0] = '0';
 	if (nl < 0)
 	{
