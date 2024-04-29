@@ -6,19 +6,19 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:15:24 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/24 15:05:04 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:05:06 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
-{	
+int	ft_lstsize(t_list *lst)
+{
 	int	i;
-	
+
 	i = 0;
 	while (lst)
-	{	
+	{
 		lst = lst->next;
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 17:36:21 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/24 18:32:23 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:04:52 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if(!lst)
-		return;
+	if (!lst)
+		return ;
 	del(lst->content);
 	free(lst);
 }

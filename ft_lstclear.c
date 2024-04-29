@@ -6,7 +6,7 @@
 /*   By: famendes <famendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 18:04:26 by famendes          #+#    #+#             */
-/*   Updated: 2024/04/24 20:06:37 by famendes         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:00:57 by famendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*current;
-	
-	if(!lst)
-		return;
+
+	if (!lst)
+		return ;
 	while (*lst)
 	{
 		current = (*lst)->next;
