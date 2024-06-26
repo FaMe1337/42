@@ -15,11 +15,8 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	nl;
-	int		i;
-	char	s[10];
 
 	nl = n;
-	i = 0;
 	if (nl == 0)
 	{
 		write (fd, "0", 1);
@@ -30,11 +27,7 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, "-", 1);
 		nl *= -1;
 	}
-	while (nl)
-	{
-		s[i++] = (nl % 10) + 48;
-		nl /= 10;
-	}
-	while (i > 0)
-		write(fd, &s[--i], 1);
+	if (nl > 9)
+	    ft_putnbr_fd(nl / 10, fd);
+	write(fd, &"0123456789"[nl % 10], 1);
 }
